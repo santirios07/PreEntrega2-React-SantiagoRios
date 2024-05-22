@@ -1,16 +1,17 @@
 import NavBar from "./components/navbar/navbar"
 import ItemListContainer from "./containers/itemlistcontainer/itemlistcontainer"
-import Contador from "./components/contador/contador"
+
 
 function App() {
 
   return (
     <>
-    <header className="bg-white drop-shadow-md">
+    <header className="bg-teal-700 drop-shadow-lg">
       <NavBar></NavBar>
     </header>
-    <ItemListContainer greeting={'Bienvenidos a nuestra Tienda'}></ItemListContainer>
-    <Contador></Contador>
+    <main className="bg-teal-700 h-screen">
+      <ItemListContainer greeting={'PROXIMAMENTE'}></ItemListContainer>
+    </main>
     </>
   )
 }
