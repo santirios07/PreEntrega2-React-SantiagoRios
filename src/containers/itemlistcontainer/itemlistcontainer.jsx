@@ -24,7 +24,7 @@ const ItemListContainer = ({greeting}) => {
 
 
   return (
-    <div>
+    <div className='bg-teal-700 h-full'>
         <h1 className='text-6xl text-center py-10 text-white font-ubuntu'>{greeting}</h1>
         <div className='container mx-auto p-10'>
             <ItemList items={products} />
