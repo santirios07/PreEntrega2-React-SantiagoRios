@@ -10,17 +10,14 @@ const Contador = () => {
     }
 
     const restarContador = () => {
-        contador > 1 ? setContador(contador - 1) : alert("No se puede restar menos de 1")
+        contador > 1 ? setContador(contador - 1) : console.log("No se puede restar de 1")
     }
 
     return(
-        <div className="flex flex-col justify-center items-center font-ubuntu">
-            <h2>Contador: {contador}</h2>
-            <div className="flex gap-2 p-2">
-                <Button onClick={sumarContador}>+</Button>
-                <Button onClick={restarContador}>-</Button>
-            </div>
-
+        <div className="flex justify-center items-center font-ubuntu gap-2 p-2">
+            <Button onClick={sumarContador}>+</Button>
+            <p>{contador}</p>
+            <Button onClick={restarContador}>-</Button>
         </div>
     );
 }
