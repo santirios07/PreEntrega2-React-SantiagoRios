@@ -1,4 +1,4 @@
-import NavBar from "./components/navbar/navbar"
+import NavBar from "./components/navbar/NavBar"
 import ItemListContainer from "./containers/itemlistcontainer/ItemListContainer"
 import { BrowserRouter,Routes, Route } from "react-router-dom"
 
@@ -7,11 +7,10 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <header className="bg-teal-700 drop-shadow-lg">
           <NavBar/>
-        </header>
         <Routes>
-          <Route path="/" element={<ItemListContainer greeting={'PRODUCTOS'}/>} />
+          <Route path="/" element={<ItemListContainer/>} />
+          <Route path="/category/:idCategory" element={<ItemListContainer />} />
         </Routes>
       </BrowserRouter>
     </>
