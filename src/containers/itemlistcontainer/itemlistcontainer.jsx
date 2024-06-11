@@ -17,18 +17,14 @@ const ItemListContainer = () => {
     if(idCategory){
         fetch(`https://fakestoreapi.com/products/category/${idCategory}`)
         .then(res => res.json())
-        .then(res => {
-            setProducts(res)
-        })
+        .then(res => setProducts(res))
         .catch(error => console.error(error))
         .finally(() => setLoading(false))
     }
     else{
         fetch("https://fakestoreapi.com/products")
             .then(res => res.json())
-            .then(res => {
-                setProducts(res)
-            })
+            .then(res => setProducts(res))
             .catch(error => console.error(error))   
             .finally(() => setLoading(false))
     }
@@ -41,7 +37,7 @@ const ItemListContainer = () => {
 
   if(loading){
     return(
-        <div className='bg-teal-700 h-screen flex justify-center'>
+        <div className='bg-white h-screen flex justify-center'>
             <CircularProgress size="md" aria-label="Loading..."/>
         </div>
     )
@@ -50,9 +46,9 @@ const ItemListContainer = () => {
 
 
   return (
-    <div className='bg-teal-700 h-full'>
-        <h1 className='text-6xl text-center py-10 text-white font-ubuntu'>Productos</h1>
-        <div className='container mx-auto p-10'>
+    <div className='bg-white h-full'>
+        <h1 className='text-6xl text-center py-10 text-teal-600 font-ubuntu'>Productos</h1>
+        <div className='container mx-auto px-10'>
             <ItemList items={products} />
         </div>
     </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Badge, Button } from '@nextui-org/react'
-import CartIcon from '../carticon/carticon'
+import CartIcon from '../carticon/CartIcon'
 
 
 const CartWidget = () => {
