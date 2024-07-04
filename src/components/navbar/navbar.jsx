@@ -9,7 +9,7 @@ const NavBar = () => {
         <Link className='flex flex-grow basis-0 ' to={"/"}>
           <h2 className='text-lg hover:scale-105 hover:text-gray-300 duration-150'>Mar Indumentaria</h2>
         </Link>
-        <ul className='flex flex-grow basis-0 gap-3 text-lg justify-center'>
+        <ul className='flex flex-grow basis-0 gap-4 text-lg justify-center'>
             <Link to={"/"}>
               <li className='hover:text-gray-300 duration-150'>Inicio</li>
             </Link>

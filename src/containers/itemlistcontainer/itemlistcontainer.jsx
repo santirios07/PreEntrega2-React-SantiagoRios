@@ -38,7 +38,7 @@ const ItemListContainer = () => {
   if(loading){
     return(
         <div className='bg-white h-screen flex justify-center'>
-            <CircularProgress size="md" aria-label="Loading..."/>
+            <CircularProgress size="md" label="Cargando..."/>
         </div>
     )
   }
@@ -48,9 +48,13 @@ const ItemListContainer = () => {
   return (
     <div className='bg-white h-full'>
         <h1 className='text-6xl text-center py-10 text-teal-600 font-ubuntu'>Productos</h1>
+        {products.length > 0 ?
         <div className='container mx-auto px-10'>
             <ItemList items={products} />
-        </div>
+        </div> 
+        :
+        <h2>No se encontaron productos</h2>
+        }
     </div>
   )
 }

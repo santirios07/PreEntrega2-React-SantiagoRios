@@ -1,17 +1,10 @@
 import { Button } from "@nextui-org/react";
-import { useState } from "react";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 const ItemCount = () => {
 
-    const [contador, setContador] = useState(1);
-
-    const sumarContador = () => {
-        setContador(contador + 1)
-    }
-
-    const restarContador = () => {
-        contador > 1 ? setContador(contador - 1) : console.log("Minimo")
-    }
+   const {contador, sumarContador, restarContador} = useContext(CartContext)
 
     return(
         <div className="flex justify-center items-center font-ubuntu gap-2">

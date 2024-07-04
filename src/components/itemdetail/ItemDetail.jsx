@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button } from '@nextui-org/react'
 import ItemCount from '../itemcount/ItemCount'
+import { CartContext } from '../../context/CartContext'
 
 const ItemDetail = ({detail}) => {
+
+  const {addItem} = useContext(CartContext)
+
+
   return (
     <section className="text-gray-700 body-font overflow-hidden bg-white font-ubuntu">
     <div className="container px-8 py-10 mx-auto">
@@ -15,7 +20,7 @@ const ItemDetail = ({detail}) => {
             <span className="title-font font-medium text-2xl text-gray-900">${detail.price}</span>
           <div className="flex py-2">
             <ItemCount className=""/>
-            <Button className="ml-auto text-white bg-teal-500 border-0 py-2 px-6 focus:outline-none hover:bg-teal-600 rounded">Agregar al carrito</Button>
+            <Button onClick={() => addItem({id: detail.id, name: detail.title, price: detail.price})} className="ml-auto text-white bg-teal-500 border-0 py-2 px-6 focus:outline-none hover:bg-teal-600 rounded">Agregar al carrito</Button>
           </div>
         </div>
       </div>
