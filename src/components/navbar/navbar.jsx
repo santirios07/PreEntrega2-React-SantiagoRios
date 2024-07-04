@@ -13,14 +13,14 @@ const NavBar = () => {
             <Link to={"/"}>
               <li className='hover:text-gray-300 duration-150'>Inicio</li>
             </Link>
-            <Link to={"/category/men's clothing"}>
-              <li className='hover:text-gray-300 duration-150'>Ropa de Hombre</li>
+            <Link to={"/category/buzos"}>
+              <li className='hover:text-gray-300 duration-150'>Buzos</li>
             </Link>
-            <Link to={"/category/women's clothing"}>
-              <li className='hover:text-gray-300 duration-150'>Ropa de Mujer</li>
+            <Link to={"/category/pantalones"}>
+              <li className='hover:text-gray-300 duration-150'>Pantalones</li>
             </Link>
-            <Link to={"/category/jewelery"}>
-              <li className='hover:text-gray-300 duration-150'>Joyas</li>
+            <Link to={"/category/sweaters"}>
+              <li className='hover:text-gray-300 duration-150'>Sweaters</li>
             </Link>
         </ul>
         <CartWidget></CartWidget>

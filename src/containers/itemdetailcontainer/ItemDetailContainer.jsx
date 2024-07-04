@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from '../../components/itemdetail/ItemDetail'
 import { CircularProgress } from '@nextui-org/react'
+import { db } from '../../firebase/client'
+import { getDoc, doc } from 'firebase/firestore'
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState()
@@ -9,10 +11,12 @@ const ItemDetailContainer = () => {
     const {idProduct} = useParams()
 
     useEffect(() => {
-        fetch(`https://fakestoreapi.com/products/${idProduct}`)
-            .then(res=>res.json())
-            .then(res =>setProduct(res))
-            .catch(error => console.error(error))
+        const productRef = doc(db, "products", idProduct);
+        getDoc(productRef).then((snapshot) => {
+          if (snapshot.exists()) {
+            setProduct({id: snapshot.id, ...snapshot.data()})
+          }
+        })
     },[idProduct])
 
 

@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import ItemList from '../../components/itemlist/ItemList'
 import { useParams } from 'react-router-dom'
 import { CircularProgress } from '@nextui-org/react'
+import { collection, getDocs, limit, query, where } from 'firebase/firestore'
+import { db } from '../../firebase/client'
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([])
@@ -15,18 +17,30 @@ const ItemListContainer = () => {
     setLoading(true)
 
     if(idCategory){
-        fetch(`https://fakestoreapi.com/products/category/${idCategory}`)
-        .then(res => res.json())
-        .then(res => setProducts(res))
-        .catch(error => console.error(error))
+        const q = query(
+          collection(db, "products"),
+          where("category", "==", idCategory)
+        );
+        getDocs(q).then((snapshot) => {
+          if(snapshot.size === 0){
+            console.log("No results");
+          }
+          setProducts(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()})))
+        })
         .finally(() => setLoading(false))
     }
     else{
-        fetch("https://fakestoreapi.com/products")
-            .then(res => res.json())
-            .then(res => setProducts(res))
-            .catch(error => console.error(error))   
-            .finally(() => setLoading(false))
+        const q = query(
+          collection(db, "products"),
+          limit(5)
+        );
+        getDocs(q).then((snapshot) => {
+          if(snapshot.size === 0){
+            console.log("No results");
+          }
+          setProducts(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()})))
+        })
+        .finally(() => setLoading(false))
     }
   }
 
