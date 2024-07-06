@@ -12,7 +12,7 @@ const ItemListContainer = () => {
   
   const {idCategory} = useParams()
 
-  //Llamado a la api
+  //Llamado a firebase
   const getProducts = (idCategory) => {
     setLoading(true)
 

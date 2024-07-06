@@ -1,8 +1,8 @@
-import React from 'react'
 import CartWidget from '../cartwidget/CartWidget'
 import { Link } from 'react-router-dom'
 
 const NavBar = () => {
+
   return (
     <nav className="bg-teal-700 drop-shadow-lg">
       <div className='flex justify-between items-center w-full py-3 px-10 font-ubuntu text-white'>
@@ -23,7 +23,7 @@ const NavBar = () => {
               <li className='hover:text-gray-300 duration-150'>Sweaters</li>
             </Link>
         </ul>
-        <CartWidget></CartWidget>
+          <CartWidget/>
       </div>
     </nav>
   )

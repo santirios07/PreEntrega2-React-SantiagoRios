@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { Button } from "@nextui-org/react"
 
 const Item = ({id, title, price, image}) => {
   return (
@@ -6,9 +7,7 @@ const Item = ({id, title, price, image}) => {
       <img src={image} alt=""/>
       <h3 className="text-xl my-5">{title}</h3>
       <h4 className="text-lg font-semibold mb-5">${price}</h4>
-      <Link to={`/products/${id}`}>
-        <button className="py-2 px-6 bg-teal-500 text-white rounded-md hover:bg-teal-600">Ver Detalles</button>
-      </Link>
+      <Button as={Link} to={`/products/${id}`} className="py-2 px-6 bg-teal-500 text-white rounded-md hover:bg-teal-600">Ver Detalles</Button>
     </div>
   )
 }
