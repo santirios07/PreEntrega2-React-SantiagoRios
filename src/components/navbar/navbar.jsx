@@ -11,16 +11,16 @@ const NavBar = () => {
           <h2 className='text-lg hover:scale-105 hover:text-gray-300 duration-150'>Mar Indumentaria</h2>
         </Link>
         <div className='flex flex-grow basis-0 gap-4 text-lg justify-center'>
-            <Button as={Link} to={"/"}>
+            <Button as={Link} to={"/"} className='bg-white text-teal-700 font-bold'>
               Inicio
             </Button>
             <Dropdown>
-              <DropdownTrigger>
+              <DropdownTrigger className='bg-white text-teal-700 font-bold'>
                 <Button className='font-ubuntu '>
                   Categorias
                 </Button>
               </DropdownTrigger>
-              <DropdownMenu aria-label='Categorias de productos'>
+              <DropdownMenu aria-label='Categorias de productos' className='bg-white text-teal-700 font-bold'>
                 <DropdownItem as={Link} to={"/category/buzos"} key="buzos">
                    Buzos
                 </DropdownItem>

@@ -32,7 +32,7 @@ const ItemListContainer = () => {
     else{
         const q = query(
           collection(db, "products"),
-          limit(5)
+          limit(10)
         );
         getDocs(q).then((snapshot) => {
           if(snapshot.size === 0){

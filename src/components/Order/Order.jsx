@@ -38,7 +38,7 @@ const Order = () => {
 
         setTimeout(() => {
             clearCart()
-        },8000)
+        },15000)
     }
 
     if(cart.length === 0){
