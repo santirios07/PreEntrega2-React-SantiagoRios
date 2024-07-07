@@ -34,6 +34,11 @@ export const CartComponentContext = ({children})=> {
         setCart(prevCart => prevCart.filter(item => item.id !== itemId))
     }
 
+    //Funcion para limpiar el carrito
+    const clearCart = ()=>{
+        setCart([])
+    }
+
     //Cantidad de items en carrito
     const cantidadTotal = cart.reduce((acc, product) => acc + product.quantity, 0)
 
@@ -41,7 +46,7 @@ export const CartComponentContext = ({children})=> {
     const precioTotal = cart.reduce((acc, product) => acc + product.quantity * product.price, 0)
 
     return(
-        <CartContext.Provider value={{cart, isInCart, addItem, updateItemQuantity, removeItem, cantidadTotal, precioTotal}}>
+        <CartContext.Provider value={{cart, isInCart, addItem, updateItemQuantity, removeItem, clearCart, cantidadTotal, precioTotal}}>
             {children}
         </CartContext.Provider>
     )
